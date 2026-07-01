@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://git.cs.hse.ru/edu/sse/2025_26/theses/Georgii-Lanin-gmlanin"
+Repository = "https://github.com/hse-cs/hyppopipe"
 
 [tool.poetry]
 packages = [{ include = "hyppopipe", from = "src" }]
