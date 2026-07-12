@@ -10,7 +10,8 @@ The project is being developed by the project [group](cs.hse.ru/dse/ismed ) "Inf
 
 ## Documentation
 
-Read interactive docs [here](https://geolan84.github.io/hyppopipe/en/)
+Read interactive docs [here](https://hse-cs.github.io/hyppopipe/en/)
+
 Documentation is available at folder `/docs` in English and Russian.
 
 ## Install
@@ -133,7 +134,8 @@ pip install -i https://test.pypi.org/simple/ hyppopipe
 
 ## Документация
 
-Read interactive docs [here](https://geolan84.github.io/hyppopipe/ru/)
+Интерактивная документация [здесь](https://hse-cs.github.io/hyppopipe/ru/)
+
 Документация доступна в паке `/docs` на английском и русском языках.
 
 ## Использование
