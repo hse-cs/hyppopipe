@@ -1,6 +1,6 @@
 [project]
 name = "hyppopipe"
-version = "0.1.2"
+version = "0.1.3"
 description = "Modern framework for ML-pipelines creation."
 authors = [{ name = "Geolan84", email = "gmlanin@edu.hse.ru" }]
 readme = "README.md"
