@@ -24,10 +24,10 @@ source .venv/bin/activate
 # .\.venv\Scripts\activate # For windows
 ```
 
-Install hyppopipe package from [TestPyPi](https://test.pypi.org/project/hyppopipe/):
+Install hyppopipe package from [PyPi](https://pypi.org/project/hyppopipe/):
 
 ```shell
-pip install -i https://test.pypi.org/simple/ hyppopipe
+pip install hyppopipe
 ```
 
 ## Usage
@@ -126,10 +126,10 @@ source .venv/bin/activate
 # .\.venv\Scripts\activate # For windows
 ```
 
-Устанавливаем зависимости проекта из индекса [TestPyPi](https://test.pypi.org/project/hyppopipe/).
+Устанавливаем зависимости проекта из индекса [PyPi](https://pypi.org/project/hyppopipe/):
 
 ```shell
-pip install -i https://test.pypi.org/simple/ hyppopipe
+pip install hyppopipe
 ```
 
 ## Документация
