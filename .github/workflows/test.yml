@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install --with tests,lint
+      - name: Lint
+        run: poetry run ruff check .
+      - name: Run tests
+        run: poetry run pytest

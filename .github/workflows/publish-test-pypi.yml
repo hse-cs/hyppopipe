@@ -1,0 +1,45 @@
+name: Publish to TestPyPI
+
+on:
+  push:
+    tags:
+      - "v*-rc*"
+      - "v*-alpha*"
+      - "v*-beta*"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: testpypi
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify tag matches project version
+        run: |
+          pip install poetry
+          TAG_VERSION="${GITHUB_REF#refs/tags/v}"
+          TAG_NORMALIZED="$(echo "$TAG_VERSION" | sed -E 's/-rc/rc/; s/-alpha/a/; s/-beta/b/')"
+          PYPROJECT_VERSION="$(poetry version -s)"
+          if [ "$TAG_NORMALIZED" != "$PYPROJECT_VERSION" ]; then
+            echo "Tag v${TAG_VERSION} (normalized: ${TAG_NORMALIZED}) does not match pyproject.toml version ${PYPROJECT_VERSION}"
+            exit 1
+          fi
+      - name: Build package
+        run: |
+          pip install poetry
+          poetry build
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
+          repository-url: https://test.pypi.org/legacy/
